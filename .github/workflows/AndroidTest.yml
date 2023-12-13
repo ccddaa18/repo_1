@@ -16,7 +16,7 @@ jobs:
         uses : actions/setup-java@v4.0.0
         with :
           java-version : "17"
-          distribution : "adopt"
+          distribution : "oracle"
 
       - name : Build with Gradle
         run : ./gradlew build
