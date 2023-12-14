@@ -1,25 +1,25 @@
 name: AndroidTest
 on:
-  pull_request :
-    branches : [ master ]
-  push :
-    branches : [ master ]
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
 
 jobs:
   build:
-    runs-on : ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - name : Checkout
-        uses : actions/checkout@v4.1.1
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
 
-      - name : Setup Java JDK
-        uses : actions/setup-java@v4.0.0
-        with :
-          java-version : "17"
-          distribution : "oracle"
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.0.0
+        with:
+          java-version: "17"
+          distribution: "oracle"
 
-      - name : Build with Gradle
-        run : ./gradlew build
+      - name: Build with Gradle
+        run: ./gradlew build
 
-      - name : Test with Gradle
-        run : ./gradlew :app:test
+      - name: Test with Gradle
+        run: ./gradlew :app:test
