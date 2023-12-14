@@ -23,3 +23,6 @@ jobs:
 
       - name: Test with Gradle
         run: ./gradlew :app:test
+
+      - name: Android Test Report
+        run: asadmansr/android-test-report-action@v1.2.0
