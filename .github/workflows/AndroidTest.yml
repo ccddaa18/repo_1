@@ -18,13 +18,21 @@ jobs:
           java-version: "17"
           distribution: "oracle"
 
-#      - name: Build with Gradle
-#        run: ./gradlew build
+      - name: Build with Gradle
+        run: ./gradlew build
 
       - name: Test with Gradle
         run: ./gradlew :app:test
 
-      - name: Unit test results
+      - name: Unit test results_success
+        if: success()
+        uses: actions/upload-artifact@v1
+        with:
+          name: unit-test-results
+          path: app/build/reports/tests/testDebugUnitTest/index.html
+
+      - name: Unit test results_failure
+        if: failure()
         uses: actions/upload-artifact@v1
         with:
           name: unit-test-results
