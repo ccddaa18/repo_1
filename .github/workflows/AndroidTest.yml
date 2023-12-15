@@ -23,3 +23,9 @@ jobs:
 
       - name: Test with Gradle
         run: ./gradlew :app:test
+
+      - name: Unit test results
+        uses: actions/upload-artifact@v1
+        with:
+          name: unit-test-results
+          path: app/build/reports/tests/testDebugUnitTest/index.html
