@@ -25,15 +25,15 @@ jobs:
         run: ./gradlew :app:test
 
       - name: Unit test results_success
-        if: success()
+        if: success() || failure()
         uses: actions/upload-artifact@v1
         with:
           name: unit-test-results
           path: app/build/reports/tests/testDebugUnitTest/index.html
 
-      - name: Unit test results_failure
-        if: failure()
-        uses: actions/upload-artifact@v1
-        with:
-          name: unit-test-results
-          path: app/build/reports/tests/testDebugUnitTest/index.html
+#      - name: Unit test results_failure
+#        if: failure()
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: unit-test-results
+#          path: app/build/reports/tests/testDebugUnitTest/index.html
