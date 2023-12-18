@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 env:
-  LAUNCHABLE_TOKEN: ${{secrets.v1:sample/local-unit-test:834345aae3354f50b54c33771cd033d0}}
+  LAUNCHABLE_TOKEN: 'v1:sample/local-unit-test:834345aae3354f50b54c33771cd033d0'
   LAUNCHABLE_ORGANIZATION: 'sample'
   LAUNCHABLE_WORKSPACE: 'local-unit-test'
 
