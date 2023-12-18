@@ -5,6 +5,10 @@ on:
   push:
     branches: [ master ]
 
+env:
+  LAUNCHABLE_ORGANIZATION: 'sample'
+  LAUNCHABLE_WORKSPACE: 'local-unit-test'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,9 +28,15 @@ jobs:
       - name: Test with Gradle
         run: ./gradlew :app:test
 
-      - name: Unit test results
-        if: success() || failure()
-        uses: actions/upload-artifact@v1
-        with:
-          name: unit-test-results
-          path: app/build/reports/tests/testDebugUnitTest/index.html
+#      - name: Unit test results
+#        if: success() || failure()
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: unit-test-results
+#          path: app/build/reports/tests/testDebugUnitTest/index.html
+
+      - name: Run tests with Gradle and Launchable
+        run: ./pre-merge.sh
+        working-directory: ./gradle
+        env:
+          GITHUB_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
