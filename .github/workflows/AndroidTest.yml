@@ -25,8 +25,8 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Test with Gradle
-        run: ./gradlew :app:test
+#      - name: Test with Gradle
+#        run: ./gradlew :app:test
 
 #      - name: Unit test results
 #        if: success() || failure()
@@ -37,6 +37,6 @@ jobs:
 
       - name: Run tests with Gradle and Launchable
         run: ./pre-merge.sh
-        working-directory: ./gradle
+        working-directory: ./app
         env:
           GITHUB_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
