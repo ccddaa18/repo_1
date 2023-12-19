@@ -52,4 +52,4 @@ echo
 echo "# Run gradle with the subset of tests"
 echo "# Command: ./gradlew :app:test \$(< subset.txt)"
 echo
-./gradlew :app:test $(< subset.txt)
+../.././gradlew :app:test $(< subset.txt)
