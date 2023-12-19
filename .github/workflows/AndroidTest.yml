@@ -35,9 +35,10 @@ jobs:
 #        with:
 #          name: unit-test-results
 #          path: app/build/reports/tests/testDebugUnitTest/index.html
+# working-directory: ./app   .github/workflows
 
       - name: Run tests with Gradle and Launchable
         run: ./pre-merge.sh
-        working-directory: ./app
+        working-directory: .github/workflows
         env:
           GITHUB_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
