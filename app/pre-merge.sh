@@ -24,6 +24,8 @@ echo "# Command: launchable record build --name \"\$BUILD_NAME\" --source .."
 echo
 launchable record build --name "$BUILD_NAME" --source ..
 
+launchable record session ...
+
 echo
 echo "# Find 25% of the relevant tests to run for this change"
 echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle src/test/java > subset.txt"
