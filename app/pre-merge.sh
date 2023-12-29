@@ -29,7 +29,8 @@ launchable record session ...
 echo
 echo "# Find 25% of the relevant tests to run for this change"
 echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle src/test/java > subset.txt"
-launchable subset --target 25% --build "$BUILD_NAME" gradle src/test/java > subset.txt
+#launchable subset --target 25% --build "$BUILD_NAME" gradle src/test/java > subset.txt
+launchable subset --build "$BUILD_NAME" --target 25% gradle src/test/java > subset.txt
 
 echo
 echo "# Inspect the subset file"
@@ -41,7 +42,8 @@ function record(){
   echo "# Record test results"
   echo "# Command: launchable record tests --build \"\$BUILD_NAME\" gradle build/test-results/test"
   echo
-  launchable record tests --build "$BUILD_NAME" gradle build/test-results/test
+#  launchable record tests --build "$BUILD_NAME" gradle build/test-results/test
+  launchable record tests --build "$BUILD_NAME" gradle src/test/java
 
   echo
   echo "============END LAUNCHABLE=================="
