@@ -26,6 +26,8 @@ echo
 launchable record build --name "$BUILD_NAME" --source ..
 
 #launchable record session ...
+launchable record session --build "$BUILD_NAME"
+
 
 echo
 echo "# Find 25% of the relevant tests to run for this change"
