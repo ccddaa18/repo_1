@@ -16,7 +16,7 @@ function record(){
   # Record test results
   # launchable record test --build "$BUILD_NAME" gradle app/src/test/java/com/example/sampleapplication
   # launchable record test --build "$BUILD_NAME" gradle app/src/test
-  launchable record test --build "$BUILD_NAME" gradle build/test-results/test
+  launchable record tests --build "$BUILD_NAME" gradle build/test-results/test
 }
 
 trap record EXIT
