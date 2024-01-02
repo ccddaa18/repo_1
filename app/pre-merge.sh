@@ -5,6 +5,8 @@ echo
 echo "============BEGIN LAUNCHABLE=================="
 
 echo
+echo $BUILD_NAME
+echo
 echo "# Install the Launchable CLI. If you can, install it as part of the builder image to speed things up"
 echo "# Command: pip3 install --user launchable~=1.0 > /dev/null"
 echo
@@ -23,7 +25,7 @@ echo "# Command: launchable record build --name \"\$BUILD_NAME\" --source .."
 echo
 launchable record build --name "$BUILD_NAME" --source ..
 
-launchable record session ...
+#launchable record session ...
 
 echo
 echo "# Find 25% of the relevant tests to run for this change"
@@ -31,26 +33,27 @@ echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle 
 #launchable subset --target 25% --build "$BUILD_NAME" gradle src/test/java > subset.txt
 #launchable subset --build "$BUILD_NAME" --get-tests-from-previous-sessions --target 25% gradle src/test/java > subset.txt
 launchable subset --build "$BUILD_NAME" --target 25% gradle src/test/java/com/example/sampleapplication > subset.txt
+#gradle test $(cat subset.txt)
 
 echo
 echo "# Inspect the subset file"
 echo "# Command: cat subset.txt"
 cat subset.txt
 
-function record(){
-  echo
-  echo "# Record test results"
-  echo "# Command: launchable record tests --build \"\$BUILD_NAME\" gradle build/test-results/test"
-  echo
+#function record(){
+#  echo
+#  echo "# Record test results"
+#  echo "# Command: launchable record tests --build \"\$BUILD_NAME\" gradle build/test-results/test"
+#  echo
 #  launchable record tests --build "$BUILD_NAME" gradle build/test-results/test
-  launchable record tests --build "$BUILD_NAME" gradle src/test/java
+#  launchable record tests --build "$BUILD_NAME" gradle src/test/java
 
-  echo
-  echo "============END LAUNCHABLE=================="
-  echo
-}
+#  echo
+#  echo "============END LAUNCHABLE=================="
+#  echo
+#}
 
-trap record EXIT
+#trap record EXIT
 
 echo
 echo "# Run gradle with the subset of tests"
