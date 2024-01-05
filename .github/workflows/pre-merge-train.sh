@@ -12,6 +12,8 @@ launchable verify
 # Tell Launchable about the build you are producing and testing
 launchable record build --name "$BUILD_NAME" --source ..
 
+./gradlew :app:test
+
 function record(){
   # Record test results
   # launchable record test --build "$BUILD_NAME" gradle app/src/test/java/com/example/sampleapplication
@@ -23,5 +25,5 @@ function record(){
 
 trap record EXIT
 
-./gradlew :app:test
+#./gradlew :app:test
 #./gradlew test
