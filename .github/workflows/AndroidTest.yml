@@ -35,10 +35,11 @@ jobs:
 #        with:
 #          name: unit-test-results
 #          path: app/build/reports/tests/testDebugUnitTest/index.html
-# working-directory: ./app   .github/workflows
+#          working-directory: ./app   .github/workflows
 
       - name: Run tests with Gradle and Launchable
         run: ./pre-merge-train.sh
         working-directory: .github/workflows
+        if: always()
         env:
           GITHUB_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
