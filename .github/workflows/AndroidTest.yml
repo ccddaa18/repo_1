@@ -23,11 +23,11 @@ jobs:
           java-version: "17"
           distribution: "oracle"
 
-#      - name: Build with Gradle
-#        run: ./gradlew build
+      - name: Build with Gradle
+        run: ./gradlew build
 
-#      - name: Test with Gradle
-#        run: ./gradlew :app:test
+      - name: Test with Gradle
+        run: ./gradlew :app:test
 
 #      - name: Unit test results
 #        if: success() || failure()
