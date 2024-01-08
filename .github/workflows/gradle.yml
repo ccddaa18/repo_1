@@ -3,9 +3,9 @@ name: Build Gradle sample
 on:
   push:
     branches:
-    - master
+      - master
     paths:
-    - gradle/**
+      - gradle/**
 
 jobs:
   build:
