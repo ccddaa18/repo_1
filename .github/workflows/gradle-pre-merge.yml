@@ -1,0 +1,29 @@
+name: Efficient pull request validation for Gradle example
+on:
+  pull_request:
+    paths:
+    - gradle/**
+
+env:
+  LAUNCHABLE_TOKEN: 'v1:sample/local-unit-test:834345aae3354f50b54c33771cd033d0'
+  LAUNCHABLE_ORGANIZATION: 'sample'
+  LAUNCHABLE_WORKSPACE: 'local-unit-test'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.0.0
+        with:
+          java-version: "17"
+          distribution: "oracle"
+
+      - name: Run tests with Gradle and Launchable
+        run: ./pre-merge.sh
+        working-directory: ./gradle
+        env:
+          GITHUB_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
