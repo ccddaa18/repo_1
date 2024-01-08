@@ -1,13 +1,16 @@
 name: Build Gradle sample
+
 on:
   push:
-    branches: [ master ]
-  paths:
-    -gradle/**
+    branches:
+    - master
+    paths:
+    - gradle/**
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
