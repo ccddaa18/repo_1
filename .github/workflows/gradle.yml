@@ -3,25 +3,22 @@ name: Build Gradle sample
 on:
   push:
     branches:
-      - master
+    - master
     paths:
-      - gradle/**
+    - gradle/**
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.1.1
-
+      - uses: actions/checkout@v4.1.1
       - name: Setup Java JDK
         uses: actions/setup-java@v4.0.0
         with:
           java-version: "17"
           distribution: "oracle"
-
-      - name: Build with Gradle
+      - name: Full build
         run: |
           cd gradle
           ./ci.sh
