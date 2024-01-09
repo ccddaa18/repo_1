@@ -1,6 +1,7 @@
 #!/bin/bash -ex
-gradle
-gradle init
-gradle jar
+cd ..
+#gradle
+#gradle init
+#gradle jar
 #./gradlew jar
 ./gradlew test
