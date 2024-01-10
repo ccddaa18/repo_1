@@ -26,7 +26,8 @@ launchable record build --name "$BUILD_NAME" --source ..
 echo
 echo "# Find 25% of the relevant tests to run for this change"
 echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle src/test/java > subset.txt"
-launchable subset --target 25% --build "$BUILD_NAME" gradle src/test/java > subset.txt
+#launchable subset --target 25% --build "$BUILD_NAME" gradle src/test/java > subset.txt
+launchable subset --target 25% --build "$BUILD_NAME" gradle src/test/java/com/example/sampleapplication > subset.txt
 
 echo
 echo "# Inspect the subset file"
