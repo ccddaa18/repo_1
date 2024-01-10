@@ -4,6 +4,8 @@ on:
   push:
     branches:
     - master
+  pull_request:
+    - master
 #    paths:
 #    - gradle/**
 
@@ -22,3 +24,9 @@ jobs:
         run: |
           cd gradle
           ./ci.sh
+
+      - name: Run tests with Gradle and Launchable
+        run: ./pre-merge.sh
+        working-directory: ./gradle
+        env:
+          GITHUB_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
