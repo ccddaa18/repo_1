@@ -26,6 +26,7 @@ jobs:
           ./ci.sh
 
       - name: Run tests with Gradle and Launchable
+        if: always()
         run: ./pre-merge.sh
         working-directory: ./gradle
         env:
