@@ -1,8 +1,10 @@
 name: Efficient pull request validation for Gradle example
 on:
   pull_request:
-    paths:
-    - gradle/**
+    branches:
+      - master
+#    paths:
+#    - gradle/**
 
 env:
   LAUNCHABLE_TOKEN: 'v1:sample/local-unit-test:834345aae3354f50b54c33771cd033d0'
