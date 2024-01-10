@@ -9,6 +9,11 @@ on:
 #    paths:
 #    - gradle/**
 
+env:
+  LAUNCHABLE_ORGANIZATION: 'sample'
+  LAUNCHABLE_WORKSPACE: 'local-unit-test'
+  LAUNCHABLE_TOKEN: 'v1:sample/local-unit-test:834345aae3354f50b54c33771cd033d0'
+
 jobs:
   build:
     runs-on: ubuntu-latest
