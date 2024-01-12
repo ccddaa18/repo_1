@@ -21,7 +21,7 @@ echo
 echo "# Tell Launchable about the build you are producing and testing"
 echo "# Command: launchable record build --name \"\$BUILD_NAME\" --source .."
 echo
-launchable record build --name "$BUILD_NAME" --source ..
+launchable record build --name "$BUILD_NAME" --source .
 
 echo
 echo "# Find 25% of the relevant tests to run for this change"
