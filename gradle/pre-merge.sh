@@ -34,7 +34,7 @@ echo "# Find 25% of the relevant tests to run for this change"
 #launchable subset --target 25% --build "$BUILD_NAME" gradle src/test/java/com/example/sampleapplication > subset.txt
 
 #echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle src/test/java/com/example/sampleapplication > subset.txt"
-launchable subset --build "$BUILD_NAME" --observation --target 25%  gradle app/src/test/java/com/example/sampleapplication > launchable-subset.txt
+launchable subset --build "$BUILD_NAME" --target 25%  gradle app/src/test/java/com/example/sampleapplication > launchable-subset.txt
 
 echo
 echo "# Inspect the subset file"
