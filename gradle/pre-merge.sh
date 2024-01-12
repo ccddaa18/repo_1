@@ -12,6 +12,8 @@ pip3 install --user launchable~=1.0 > /dev/null
 
 export PATH=~/.local/bin:$PATH
 
+echo PATH
+
 echo "# Verify that Launchable setup is all correct. Useful primarily while you work on integration"
 echo "# Command: launchable verify"
 echo
@@ -21,7 +23,7 @@ echo
 echo "# Tell Launchable about the build you are producing and testing"
 echo "# Command: launchable record build --name \"\$BUILD_NAME\" --source .."
 echo
-launchable record build --name "$BUILD_NAME" --source .
+launchable record build --name "$BUILD_NAME" --source ..
 
 echo
 echo "# Find 25% of the relevant tests to run for this change"
