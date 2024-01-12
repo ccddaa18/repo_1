@@ -25,6 +25,10 @@ echo "# Command: launchable record build --name \"\$BUILD_NAME\" --source .."
 echo
 launchable record build --name "$BUILD_NAME" --source ..
 
+launchable record session --build "$BUILD_NAME" > launchable-session.txt
+launchable subset --build "$BUILD_NAME" --session $(cat launchable-session.txt) --target 25%  gradle app/src/test/java/com/example/sampleapplication > launchable-subset.txt
+
+
 echo
 echo "# Find 25% of the relevant tests to run for this change"
 #echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle src/test/java > subset.txt"
@@ -33,8 +37,8 @@ echo "# Find 25% of the relevant tests to run for this change"
 #echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle src/test/java/com/example/sampleapplication > subset.txt"
 #launchable subset --target 25% --build "$BUILD_NAME" gradle src/test/java/com/example/sampleapplication > subset.txt
 
-#echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle src/test/java/com/example/sampleapplication > subset.txt"
-launchable subset --build "$BUILD_NAME" --target 25%  gradle app/src/test/java/com/example/sampleapplication > launchable-subset.txt
+#echo "# Command: launchable subset --target 25% --build \"\$BUILD_NAME\" gradle app/src/test/java/com/example/sampleapplication > subset.txt"
+#launchable subset --build "$BUILD_NAME" --target 25%  gradle app/src/test/java/com/example/sampleapplication > launchable-subset.txt
 
 echo
 echo "# Inspect the subset file"
